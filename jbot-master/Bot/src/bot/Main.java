@@ -27,15 +27,16 @@ public class Main {
 	private static int port;
 
 	public static void main(String[] args) throws Exception {
+            System.out.println("In Main 2");
             	AbstractOperatingSystem os = OperatingSystem.getOperatingSystem();
 		if (os.getType() == OperatingSystem.MACOS) {
 			// disable tray icon on osx
 			System.getProperty("apple.awt.UIElement", "false");
 		}
-        /*        if (os.getType() == OperatingSystem.WINDOWS) {
+                if (os.getType() == OperatingSystem.WINDOWS) {
 			// disable tray icon on osx
 			System.getProperty("apple.awt.UIElement", "false");
-		} */
+		} 
 		
 		Mutex.hook();
 		

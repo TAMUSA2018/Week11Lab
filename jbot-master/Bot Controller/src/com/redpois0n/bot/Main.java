@@ -39,6 +39,17 @@ public class Main {
 	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
+            System.out.println("Try GUI?:YES or NO?");
+            // if you typed NO, then start your commands with (addsocket 1000 where 1000 is the port number)
+            Scanner scanner = new Scanner(System.in);
+            boolean test=false;
+		String input = scanner.nextLine();
+                if(input=="YES"){
+                    test=true;
+                }
+                else{
+                    
+                }
 		isStats = argsContains("-stats", args);
 		if (isStats) {
 			try {
@@ -49,7 +60,8 @@ public class Main {
 			}
 		}
 		AbstractOperatingSystem os = OperatingSystem.getOperatingSystem();
-		if (argsContains("-gui", args)) {
+	//	if (argsContains("-gui", args)) {
+        if(test==true){
 			if (os.getType() == OperatingSystem.MACOS) {
 				System.setProperty("apple.laf.useScreenMenuBar", "true");
 			}
@@ -58,6 +70,15 @@ public class Main {
 			Frame frame = new Frame();
 			frame.setVisible(true);
 			gui = frame;
+                        
+                        if (os.getType() == OperatingSystem.WINDOWS) {
+				System.setProperty("apple.laf.useScreenMenuBar", "true");
+			}
+			isGui = true;
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			Frame frame1 = new Frame();
+			frame1.setVisible(true);
+			gui = frame1;
 		}
 
 		new Thread(new ThreadPing(), "Ping Thread").start();
@@ -69,7 +90,9 @@ public class Main {
 		isVerbose = argsContains("-verbose", args);	
 		
 		try {
+                    System.out.println("start");
 			File startupCommands = new File("onload.txt");
+                         System.out.println(startupCommands.exists());
 			if (startupCommands.exists()) {
 				String[] commands = Util.fileToArray(startupCommands);
 				if (commands != null) {
@@ -81,21 +104,23 @@ public class Main {
 						}
 					}
 				}
-				
+				 System.out.println("Loaded " + commands.length + " startup commands");
 				Main.log("Loaded " + commands.length + " startup commands");
 			}
 		} catch (Exception ex) {
+                    System.out.println("Exception");
 			Main.handleException(ex);
 		}
-			
+		System.out.println("isGUI?");
+                System.out.println(isGui);
 		if (!isGui) {
-			Scanner scanner = new Scanner(System.in);
+			Scanner scanner1 = new Scanner(System.in);
 			
 			while (isRunning) {
-				String input = scanner.nextLine();
+				String input1 = scanner1.nextLine();
 				
 				try {
-					Commands.execute(input.trim());
+					Commands.execute(input1.trim());
 				} catch (Exception ex) {
 					handleException(ex);
 				}
