@@ -5,9 +5,7 @@
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>Week11_Lab</name>
             <source-roots>
-                <root id="src.dir"/>
-                <root id="src2.dir"/>
-                <root id="src3.dir"/>
+                <root id="src.jbot-master.dir"/>
             </source-roots>
             <test-roots/>
         </data>
