@@ -41,6 +41,22 @@ public class Main {
 	public static void main(String[] args) throws Exception {
             System.out.println("Try GUI?:YES or NO?");
             // if you typed NO, then start your commands with (addsocket 1000 where 1000 is the port number)
+            /* Those are the list of commands to use
+            commands.put("disconnect", CommandDisconnect.class);
+		commands.put("addsocket", CommandAddSocket.class);
+		commands.put("download", CommandDownload.class);
+		commands.put("removesocket", CommandRemoveSocket.class);
+		commands.put("help", CommandHelp.class);
+		commands.put("reconnect", CommandReconnect.class);
+		commands.put("udp", CommandUdp.class);
+		commands.put("http", CommandHttp.class);
+		commands.put("uninstall", CommandUninstall.class);
+		commands.put("update", CommandUpdate.class);
+		commands.put("rapid", CommandRapid.class);
+		commands.put("clear", CommandClear.class);
+		commands.put("ping", CommandPing.class);
+            */
+            
             Scanner scanner = new Scanner(System.in);
             boolean test=false;
 		String input = scanner.nextLine();
